@@ -37,6 +37,12 @@ keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- ToggleTerm
+keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
+
+-- Vista
+keymap("n", "<leader>v", ":Vista!!<CR>", opts)
+
 -- Bufferline
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)

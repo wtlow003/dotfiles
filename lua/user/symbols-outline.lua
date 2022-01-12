@@ -50,4 +50,4 @@ vim.g.symbols_outline = {
         Operator = {icon = "+", hl = "TSOperator"},
         TypeParameter = {icon = "𝙏", hl = "TSParameter"}
     }
-} 
+}

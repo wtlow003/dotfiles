@@ -75,7 +75,8 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
 
   -- Symbol outline
-  use 'simrat39/symbols-outline.nvim'
+  -- use 'simrat39/symbols-outline.nvim'
+  use 'liuchengxu/vista.vim'
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -95,6 +96,9 @@ return packer.startup(function(use)
     run = function() vim.fn['mkdp#util#install']() end,
     ft = {'markdown'}
   }
+
+  -- Terminal
+  use "akinsho/toggleterm.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
