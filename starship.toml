@@ -1,0 +1,115 @@
+#format = """\
+#[](bg:#030B16 fg:#7DF9AA)\
+#[󰀵 ](bg:#7DF9AA fg:#090c0c)\
+#[](fg:#7DF9AA bg:#1C3A5E)\
+#$time\
+#[](fg:#1C3A5E bg:#3B76F0)\
+#$directory\
+#[](fg:#3B76F0 bg:#FCF392)\
+#$git_branch\
+#$git_status\
+#$git_metrics\
+#[](fg:#FCF392 bg:#030B16)\
+#$character\
+#"""
+
+#format = """
+#$username\
+#$hostname\
+#$directory\
+#$git_branch\
+#$git_state\
+#$git_status\
+#$git_metrics\
+#$fill\
+#$nodejs\
+#$golang\
+#$python\
+#$docker_context \
+#$cmd_duration $jobs\
+#$line_break\
+#$character"""
+
+format = '''
+[┌───────────────────](bold green)
+[│](bold green)$username$hostname$directory$git_branch$git_state$git_status$git_metrics$fill$nodejs$python$golang$package$docker_context$cmd_duration$jobs $memory_usage
+[└─$character](bold green) '''
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ''
+style = 'bold yellow'
+format = '[$symbol $ram_pct]($style)'
+
+[nodejs]
+format = "via [$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+format = "via [$symbol($version )($mod_version )]($style)"
+
+[python]
+format = "via [${symbol}(${version} )(($virtualenv) )]($style)"
+
+[fill]
+symbol = " "
+
+[directory]
+format = "[ 📁 $path ]($style)"
+style = "white bold dimmed"
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 1
+
+#[git_branch]
+#format = '[ $symbol$branch(:$remote_branch) ]($style)'
+#symbol = " "
+#style = "fg:#1C3A5E bg:#FCF392"
+
+[git_branch]
+# symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bold purple"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+#[cmd_duration]
+#format = "[  $duration ]($style)"
+#style = "fg:bright-white bg:18"
+
+[cmd_duration]
+format = "took [$duration]($style)"
+style = "yellow"
+
+#[character]
+#success_symbol = '[ ➜](bold green) '
+#error_symbol = '[ ✗](#E84D44) '
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[shell]
+disabled = false
+cmd_indicator = ""
+
+[docker_context]
+symbol = " "
+format = "on [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[username]
+format = "[$user]($style) "
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
